@@ -6,11 +6,29 @@ class FloatingAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Container(
+      padding: const EdgeInsets.all(3),
+      width: size.width,
+      decoration: BoxDecoration(
+        color: Colors.lightBlueAccent,
+        borderRadius: BorderRadius.circular(10),
+        //shape: ,
+      ),
+      height: 64,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          MenuDrawer(),
+          IconButton(
+              onPressed: () { MenuDrawer();},
+              icon: const Icon(Icons.menu),
+          ),
+          const Text('Prune', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500,),),
+          IconButton(
+              onPressed: (){},
+              icon: const Icon(Icons.settings),
+          )
+
 
         ]
       ),

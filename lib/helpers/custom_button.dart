@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({Key? key, required this.callBack, required this.buttonTitle}) : super(key: key);
+  const CustomButton({Key? key, required this.callBack, required this.buttonChild, this.width, this.height}) : super(key: key);
   final Function callBack;
-  final String? buttonTitle;
+  final Widget? buttonChild;
+  final double? height;
+  final double? width;
 
   @override
   Widget build(BuildContext context) {
@@ -13,9 +15,9 @@ class CustomButton extends StatelessWidget {
         } ,
 
         style: ElevatedButton.styleFrom(
-          minimumSize: const Size(200, 40)
+          minimumSize: Size(width ?? 200, height ?? 40)
         ),
-      child: Text(buttonTitle!),
+      child: buttonChild!,
     );
   }
 }

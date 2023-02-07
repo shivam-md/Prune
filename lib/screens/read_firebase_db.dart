@@ -1,6 +1,6 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:project_manager/screens/write_firebase_db.dart';
+import 'package:project_manager/screens/addNotesScreen.dart';
 
 class ReadDatabase extends StatefulWidget {
   const ReadDatabase({Key? key}) : super(key: key);
@@ -42,7 +42,7 @@ class _ReadDatabaseState extends State<ReadDatabase> {
                   const SizedBox(height: 20,),
                   ElevatedButton(
                       onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => const WriteDatabase() ));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const AddNotesScreen() ));
                       },
                       child: const Text('Add Task',style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),),
                   ),

@@ -11,7 +11,7 @@ class TaskModel extends ChangeNotifier {
 
   // firebase database reference RTDB.
   final _database = FirebaseDatabase.instance.ref();
-  static const DATABASE_PATH = '/task';
+  static const DATABASE_PATH = '/tasks';
 
   // When you listen on a Stream using Stream.listen, a StreamSubscription object is returned.
   late StreamSubscription _taskStream;

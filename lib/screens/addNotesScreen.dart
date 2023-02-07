@@ -1,21 +1,23 @@
 //In this file we are going to set and update data into firebase realtime database.
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:project_manager/database/write_firebase_rtdb.dart';
+import 'package:project_manager/providers/task_model.dart';
 
-class WriteDatabase extends StatefulWidget {
-  const WriteDatabase({Key? key}) : super(key: key);
+class AddNotesScreen extends StatefulWidget {
+  const AddNotesScreen({Key? key}) : super(key: key);
 
   @override
-  State<WriteDatabase> createState() => _WriteDatabaseState();
+  State<AddNotesScreen> createState() => _AddNotesScreenState();
 }
 
-class _WriteDatabaseState extends State<WriteDatabase> {
+class _AddNotesScreenState extends State<AddNotesScreen> {
 
   TextEditingController titleController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
   TextEditingController priorityController = TextEditingController();
   final database = FirebaseDatabase.instance.ref();
-  var selectedValue = 'Normal';
+  var selectedValue = 'Normal Priority';
 
 
   @override
@@ -32,7 +34,7 @@ class _WriteDatabaseState extends State<WriteDatabase> {
                   Container(
                     alignment: Alignment.centerLeft,
                     //padding: EdgeInsets.only(right: 200),
-                    height: 50,
+                    height: 80,
                     width: 50,
                     child: IconButton(
                         onPressed: (){
@@ -82,11 +84,12 @@ class _WriteDatabaseState extends State<WriteDatabase> {
                   const SizedBox(height: 25,),
                   ElevatedButton(
                       onPressed: (){
-                        final databaseNode = database.child('/task/title: "${titleController.text}"');
-                        databaseNode.set({
-                          'description': descriptionController.text,
-                          'priority': priorityController.text,
-                        });
+                        WriteDatabase.push(
+                            path: TaskModel.DATABASE_PATH,
+                            title: titleController.text,
+                            description: descriptionController.text,
+                            priority: priorityController.text
+                        );
                         Navigator.pop(context);
                       },
                       style: ElevatedButton.styleFrom(
@@ -105,13 +108,13 @@ class _WriteDatabaseState extends State<WriteDatabase> {
   List<DropdownMenuItem<String>> get menuItem {
     List<DropdownMenuItem<String>> menuItems = const [
       DropdownMenuItem(
-        value: 'Normal',
+        value: 'Normal Priority',
         child: Text('Normal Priority'),),
       DropdownMenuItem(
-        value: 'High',
+        value: 'High Priority',
         child: Text('High Priority'),),
       DropdownMenuItem(
-        value: 'Max',
+        value: 'Max Priority',
         child: Text('Max Priority'),),
 
     ];

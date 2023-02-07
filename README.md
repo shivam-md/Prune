@@ -1,8 +1,8 @@
-# project_manager
+# Prune : Project Management Application.
 
-A minimilistic flutter app to track various project and their timeline
+A minimalistic flutter app to track various project and their timeline.
 
-## Getting Started
+## Getting Started.
 
 This project is a starting point for a Flutter application.
 
