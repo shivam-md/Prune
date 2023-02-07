@@ -27,20 +27,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Project Manager'),
-          leading: IconButton(
-              onPressed: (){
-                Drawer(
-                  child: MenuDrawer(),
-                );
-              },
-              icon: const Icon(Icons.menu),
-          ),
-        ),
-        body: HomeScreen(),
-      ),
+      home: HomeScreen(),
     );
   }
 }
