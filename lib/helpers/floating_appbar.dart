@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:project_manager/screens/menu_drawer.dart';
 
 class FloatingAppBar extends StatelessWidget {
-  const FloatingAppBar({Key? key}) : super(key: key);
+  FloatingAppBar({Key? key}) : super(key: key);
+
+  final List<String> _menuItem = [
+    'Setting',
+    'User',
+    'Completed Tasks',
+    'Stats',
+    'Send FeedBack',
+    'About Us'
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -19,17 +27,17 @@ class FloatingAppBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          IconButton(
-              onPressed: () { MenuDrawer();},
-              icon: const Icon(Icons.menu),
+          InkWell(
+            onTap: (){
+              Drawer();
+            },
+            child: Icon(Icons.menu),
           ),
           const Text('Prune', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500,),),
           IconButton(
               onPressed: (){},
               icon: const Icon(Icons.settings),
           )
-
-
         ]
       ),
     );

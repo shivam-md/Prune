@@ -36,11 +36,12 @@ class TaskModel extends ChangeNotifier {
         // send orderAsJson data to our model class to make into usable format.
         Task.fromRTDB(Map<String, dynamic>.from(orderAsJson as dynamic))
       ).toList();
-      print('Task Stream $_taskStream');
 
-      // informs children about changes.
-      notifyListeners();
     });
+    print('Task Stream $_taskStream');
+
+    // informs children about changes.
+    notifyListeners();
   }
 
 

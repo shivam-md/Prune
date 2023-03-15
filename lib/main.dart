@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:project_manager/database/write_firebase_rtdb.dart';
 import 'package:project_manager/providers/task_model.dart';
 import 'package:project_manager/screens/home_screen.dart';
-import 'package:project_manager/screens/menu_drawer.dart';
-import 'package:project_manager/screens/read_firebase_db.dart';
 import 'package:provider/provider.dart';
 
 void main() async{

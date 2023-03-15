@@ -17,7 +17,7 @@ class CustomButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           minimumSize: Size(width ?? 200, height ?? 40)
         ),
-      child: buttonChild!,
+      child: buttonChild ?? const Text('Invalid child Widget'),
     );
   }
 }

@@ -1,9 +1,9 @@
+
+
 import 'package:flutter/material.dart';
-import 'package:project_manager/helpers/custom_button.dart';
 import 'package:project_manager/helpers/custom_action_button.dart';
 import 'package:project_manager/helpers/floating_appbar.dart';
 import 'package:project_manager/providers/task_model.dart';
-import 'package:project_manager/screens/addNotesScreen.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
           child: Stack(
             children: [
               Container(
-                padding: const EdgeInsets.only(top: 60,right: 20, left: 20, bottom: 20),
+                padding: const EdgeInsets.only(top: 70,right: 20, left: 20, bottom: 20),
                 // receives data from changeListener inside ChangeNotifier Provider.
                 child: Consumer<TaskModel>(
                   builder: (context, model, child) {
@@ -47,9 +47,9 @@ class HomeScreen extends StatelessWidget {
                 child: CustomActionButton(),
               ),
               // Floating custom app bar
-              const Positioned(
+              Positioned(
                   child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: 5,horizontal: 20),
+                    padding: const EdgeInsets.symmetric(vertical: 5,horizontal: 20),
                       child: FloatingAppBar(),
 
                   ),
